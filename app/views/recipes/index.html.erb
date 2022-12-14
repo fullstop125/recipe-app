@@ -1,5 +1,7 @@
 <div>
   <h1>Recipes List</h1>
+  <%= button_to 'New Recipes', '#'%>
+  
   <% @recipes.each do |recipe| %>
     <div class='recipe'>
 
@@ -13,5 +15,6 @@
       </div>
     </div>
   <% end %>
+  
 </div>
 
