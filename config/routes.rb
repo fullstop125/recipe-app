@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # Defines routes for recipes
-  resources :recipes, only: [:index,]
+  resources :recipes, only: [:index, :show]
 end

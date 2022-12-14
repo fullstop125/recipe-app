@@ -2,9 +2,9 @@
   <h1>Recipes List</h1>
   <% @recipes.each do |recipe| %>
     <div class='recipe'>
-    
+
       <div class='name'>
-        <h3><%= recipe.name %></h3>
+        <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
         <%= button_to 'Remove', '#'%>
       </div>
 
