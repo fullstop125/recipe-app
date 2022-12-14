@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Recipes styles */
+ .recipe {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+ }
+
+ .name {
+    width: 20%;
+ }
+
+ .description {
+    margin-left: 98px;
+    width: 60%;
+ }
+
+ .description p {
+    text-align: left;
+    font-size: 28px;
+ }

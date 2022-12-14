@@ -1,2 +1,17 @@
-<h1>Recipes List</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<div>
+  <h1>Recipes List</h1>
+  <% @recipes.each do |recipe| %>
+    <div class='recipe'>
+    
+      <div class='name'>
+        <h3><%= recipe.name %></h3>
+        <%= button_to 'Remove', '#'%>
+      </div>
+
+      <div class='description'>
+        <p><%= recipe.description %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
