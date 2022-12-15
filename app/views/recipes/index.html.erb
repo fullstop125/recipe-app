@@ -3,7 +3,7 @@
   <%= link_to 'New Recipe', new_recipe_path %>
   
   <% @recipes.each do |recipe| %>
-    <div class='recipe'>
+    <div class='recipes'>
 
       <div class='name'>
         <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>

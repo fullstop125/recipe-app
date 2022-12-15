@@ -1,0 +1,17 @@
+<div>
+  <h1>Public Recipes</h1>
+  
+  <% @recipes.each do |recipe| %>
+    <div class='recipes'>
+      <div class='name'>
+        <h3><%= recipe.name %></h3>
+        <p>By: </p>
+      </div>
+      <div class='description'>
+        <p>Total food items: </p>
+        <p>Total price: $ </p>
+      </div>
+    </div>
+  <% end %>
+  
+</div>

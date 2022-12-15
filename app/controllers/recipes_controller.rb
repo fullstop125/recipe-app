@@ -39,6 +39,12 @@ class RecipesController < ApplicationController
     flash[:notice] = 'Recipe was successfully deleted.'
   end
 
+  # GET /public_recipes
+  def public
+    @recipes = Recipe.where(public: true)
+    @user = User.find_by(id: params[:user_id])
+  end
+
   private
 
   def recipe_params

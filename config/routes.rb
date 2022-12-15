@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   # Defines routes for recipes
   resources :recipes, except: [:update]
+  get 'public_recipes', to: 'recipes#public', as: 'public_recipes'
 end
 
