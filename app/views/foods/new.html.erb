@@ -1,4 +1,6 @@
-<div class="new-food-container">
+<div class="container d-flex justify-content-center align-items-center">
+   
+<div class="new-food-container ms-5 mt-5 align-items-center" style='width:370px'>
     <h1 class="create-title">Add A New Food</h1>
     <%= form_with model: @food, url: foods_path do |f| %>
     <div class="form-group">
@@ -25,4 +27,6 @@
         </div>
     </div>
     <% end %>
+</div>
+
 </div>
