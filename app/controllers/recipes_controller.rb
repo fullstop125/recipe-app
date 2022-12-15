@@ -22,8 +22,6 @@ class RecipesController < ApplicationController
     @user = current_user
     @recipe.user = @user
 
-    puts @recipe.inspect.to_s
-
     if @recipe.save
       redirect_to @recipe
       flash[:notice] = "Recipe was successfully created."
@@ -31,6 +29,14 @@ class RecipesController < ApplicationController
       render 'new'
       flash[:alert] = "Recipe was not created."
     end
+  end
+
+  # Delete /recipes/1 or /recipes/1.json
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path
+    flash[:notice] = "Recipe was successfully deleted."
   end
 
   private
