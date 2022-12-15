@@ -24,10 +24,10 @@ class RecipesController < ApplicationController
 
     if @recipe.save
       redirect_to @recipe
-      flash[:notice] = "Recipe was successfully created."
+      flash[:notice] = 'Recipe was successfully created.'
     else
       render 'new'
-      flash[:alert] = "Recipe was not created."
+      flash[:alert] = 'Recipe was not created.'
     end
   end
 
@@ -36,13 +36,15 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path
-    flash[:notice] = "Recipe was successfully deleted."
+    flash[:notice] = 'Recipe was successfully deleted.'
   end
 
   private
-   def recipe_params
-     params.require(:recipe).permit(
-        :name, :preparation_time, :cooking_time, 
-        :description, :public, :user_id)
-   end
+
+  def recipe_params
+    params.require(:recipe).permit(
+      :name, :preparation_time, :cooking_time,
+      :description, :public, :user_id
+    )
+  end
 end
