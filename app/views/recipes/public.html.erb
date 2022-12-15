@@ -6,7 +6,7 @@
   <% @recipes.each do |recipe| %>
     <div class='recipes border'>
       <div class='name'>
-        <h3><%= recipe.name %></h3>
+        <h3><%= link_to recipe.name, recipe_path(recipe), :class => 'recipe-title' %></h3>
         <p>By: </p>
       </div>
       <div class='description'>

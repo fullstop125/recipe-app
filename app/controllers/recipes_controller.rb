@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
 
   # GET /public_recipes
   def public
-    @recipes = Recipe.where(public: true)
+    @recipes = Recipe.where(public: true).order('created_at DESC')
     @user = User.find_by(id: params[:user_id])
   end
 
