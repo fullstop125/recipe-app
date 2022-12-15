@@ -8,10 +8,16 @@
   align-items: center;
 }
 
-.recipes {
-  border: 1px solid lightgray;
-  border-radius: 5px;
+.headline {
   margin: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.recipe-title {
+  text-decoration: none;
 }
 
 .name {
@@ -26,4 +32,15 @@
 .description p {
   text-align: left;
   font-size: 28px;
+}
+
+.recipe-details {
+  padding: 28px;
+}
+
+.border {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: 18px;
+  padding: 28px;
 }

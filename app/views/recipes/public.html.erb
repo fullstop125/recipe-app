@@ -1,8 +1,10 @@
-<div>
-  <h1>Public Recipes</h1>
+<div class='container'>
+  <div class='headline'>
+    <h1>Public Recipes</h1>
+  </div>
   
   <% @recipes.each do |recipe| %>
-    <div class='recipes'>
+    <div class='recipes border'>
       <div class='name'>
         <h3><%= recipe.name %></h3>
         <p>By: </p>
