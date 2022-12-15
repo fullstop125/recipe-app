@@ -33,6 +33,8 @@ gem 'letter_opener'
 
 gem 'cancancan'
 
+# gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
