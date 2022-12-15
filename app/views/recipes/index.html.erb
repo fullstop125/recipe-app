@@ -4,14 +4,14 @@
     <%= link_to 'New Recipe', new_recipe_path, :class => 'btn btn-primary' %>
   </div>
   <% @recipes.each do |recipe| %>
-    <div class='recipes border'>
+    <div class='row border'>
 
-      <div class='name'>
+      <div class='col name'>
         <h3><%= link_to recipe.name, recipe_path(recipe), :class => 'recipe-title' %></h3>
         <%= button_to 'Remove', recipe_path(recipe), method: :delete, :class => 'btn btn-danger' %>
       </div>
 
-      <div class='description'>
+      <div class='col description'>
         <p><%= recipe.description %></p>
       </div>
     </div>

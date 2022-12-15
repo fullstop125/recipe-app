@@ -1,15 +1,6 @@
 /* Recipes styles */
-.recipes,
-.action-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-content: flex-start;
-  align-items: center;
-}
-
 .headline {
-  margin: 18px;
+  margin: 18px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,6 +32,6 @@
 .border {
   border: 1px solid lightgray;
   border-radius: 5px;
-  margin: 18px;
+  margin: 18px 0 !important;
   padding: 28px;
 }

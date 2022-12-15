@@ -9,9 +9,13 @@
     <p>Description: <%= @recipe.description %></p>
   </div>
 
-  <div class='action-btn'>
-    <%= button_to 'Generate Shoping List', '#', :class => 'btn btn-primary' %>
-    <%= button_to 'Add Ingredient', '#', :class => 'btn btn-secondary' %>
+  <div class='row'>
+    <div class='col'>
+      <%= button_to 'Generate Shoping List', '#', :class => 'btn btn-primary' %>
+    </div>
+    <div class='col'>
+      <%= button_to 'Add Ingredient', '#', :class => 'btn btn-secondary' %>
+    </div>
   </div>
 
   <div>
