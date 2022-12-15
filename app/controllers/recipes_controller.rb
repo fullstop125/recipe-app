@@ -22,6 +22,8 @@ class RecipesController < ApplicationController
     @user = current_user
     @recipe.user = @user
 
+    puts @recipe.inspect.to_s
+
     if @recipe.save
       redirect_to @recipe
       flash[:notice] = "Recipe was successfully created."
@@ -35,6 +37,6 @@ class RecipesController < ApplicationController
    def recipe_params
      params.require(:recipe).permit(
         :name, :preparation_time, :cooking_time, 
-        :description, :user_id)
+        :description, :public, :user_id)
    end
 end

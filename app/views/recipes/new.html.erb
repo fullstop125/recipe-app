@@ -24,7 +24,10 @@
 
     <div class='field'>
       <%= f.label 'Make Public' %>
-      <%= f.check_box :public, {}, "true", "false" %>
+      <%= f.radio_button :public, 'true', :checked => true %>
+      <%= f.label 'True' %>
+      <%= f.radio_button :public, 'false' %>
+      <%= f.label 'False' %>
     </div> 
     
     <div class='actions'>
