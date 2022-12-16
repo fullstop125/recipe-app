@@ -1,18 +1,49 @@
-<div>
-  <h1><%= @recipe.name %></h1>
-  <hr>
-  <div>
+<div class='container'>
+  <div class='headline'>
+    <h1><%= @recipe.name %></h1>
+  </div>
+
+  <div class='recipe-details border'>
     <p>Prepartion Time: <%= @recipe.preparation_time %></p>
     <p>Cooking Time: <%= @recipe.cooking_time %></p>
     <p>Description: <%= @recipe.description %></p>
   </div>
 
-  <div class='action-btn'>
-    <%= button_to 'Generate Shoping List', '#' %>
-    <%= button_to 'Add Ingredient', '#' %>
+  <div class='row ingredients'>
+    <div class='col'>
+      <%= button_to 'Generate Shoping List', '#', :class => 'btn btn-primary' %>
+    </div>
+    <div class='col'>
+      <%= link_to 'Add Ingredient', new_recipe_path, :class => 'btn btn-secondary' %>
+    </div>
   </div>
 
   <div>
     <h2>Ingredient List</h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th scope='col'>Name</th>
+          <th scope='col'>Quantity</th>
+          <th scope='col'>Price</th>
+          <th scope='col'>Total Price</th>
+          <th scope='col'>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @foods.each do |item| %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.quantity %></td>
+            <td><%= item.price %></td>
+            <td><%= item.price * item.quantity %></td>
+            <td>
+              <%= button_to 'Remove', food_path(item.id), data: {turbo: false}, method: :delete, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    
   </div>
 </div>
