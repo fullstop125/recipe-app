@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'public_lists/index'
-  get 'recipes/index'
+
   devise_for :users
   root 'foods#index'
   
@@ -9,8 +8,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   # Defines routes for recipes
-  resources :recipes, except: [:update]
+  resources :recipes do
+    resources :recipe_foods, only: [:create, :destroy, :update, :new]
+  end
   resources :public_lists, only: [:index]
+  resources :shopping_list, only: [:index]
+ 
   resources :foods, except: [:update]
 end
 

@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: %i[public]
   before_action :authenticate_user!
 
   # GET /recipes or /recipes.json
@@ -12,7 +12,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @user = current_user
     @recipe_foods = RecipeFood.includes(:food).where(recipe_id: @recipe.id)
-    
   end
 
   # GET /recipes/new or /recipes/new.json
@@ -59,6 +58,7 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(
       :name, :preparation_time, :cooking_time,
-      :description, :public, current_user.id)
+      :description, :public, current_user.id
+    )
   end
 end
