@@ -10,6 +10,12 @@
         <%= link_to 'Food', "/foods", :class => "nav-link" %>
         <%= link_to 'Public Recipes', "/public_lists", :class => "nav-link" %>
         <%= link_to 'New Recipe', "/recipes/new", :class => "nav-link" %>
+        <%= link_to 'Shopping List', shopping_list_index_path, :class => "nav-link" %>
+        <% if user_signed_in? %>
+          <%= button_to 'Logout', destroy_user_session_path, :class => " btn btn-danger ", method: :delete, data:{turbo:false} %>
+        <% end %>
+
+       
       </div>
     </div>
   </div>
