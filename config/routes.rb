@@ -9,10 +9,7 @@ Rails.application.routes.draw do
 
   # Defines routes for recipes
   resources :recipes, except: [:update]
-<<<<<<< HEAD
   get 'public_recipes', to: 'recipes#public', as: 'public_recipes'
-=======
   resources :foods, except: [:update]
->>>>>>> aeffddc6c50d835065933ab43dc581a74d60bada
 end
 
