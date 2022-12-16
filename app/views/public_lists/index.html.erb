@@ -1,0 +1,25 @@
+<div class='container'>
+  <div class='headline'>
+    <h1>Public Recipes</h1>
+  </div>
+  
+  <% @recipes.each do |recipe| %>
+    <div class='recipes border'>
+      <div class='name'>
+        <h3><%= link_to recipe.name, recipe_path(recipe), :class => 'recipe-title' %></h3>
+        <p>By: <%= recipe.user.name %> </p>
+      </div>
+      <div class='description'>
+        <p>Total food items: <%= recipe.recipe_foods.includes(:food).count %></p>
+        <p>
+          <% total = 0 %>
+          <% recipe.recipe_foods.includes(:food).each do |food| %>
+            <% total += food.quantity * food.food.price%>
+          <% end %>
+          Total price: $<%= total %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+  
+</div>

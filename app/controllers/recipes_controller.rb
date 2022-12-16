@@ -46,14 +46,6 @@ class RecipesController < ApplicationController
     flash[:notice] = 'Recipe was successfully deleted.'
   end
 
-  # GET /public_recipes
-  def public
-    @recipes = Recipe.where(public: true).order('created_at DESC')
-    @username = user_signed_in? ? current_user.name : 'Guest'
-    @total_foods = Food.count
-    @total_prices = Food.sum(:price)
-  end
-
   private
 
   def recipe_params
