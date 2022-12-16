@@ -11,18 +11,8 @@
   text-decoration: none;
 }
 
-.name {
-  width: 20%;
-}
-
-.description {
-  margin-left: 98px;
-  width: 60%;
-}
-
 .description p {
-  text-align: left;
-  font-size: 28px;
+  font-size: 18px;
 }
 
 .recipe-details {

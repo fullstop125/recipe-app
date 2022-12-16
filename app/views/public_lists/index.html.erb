@@ -4,12 +4,12 @@
   </div>
   
   <% @recipes.each do |recipe| %>
-    <div class='recipes border'>
-      <div class='name'>
+    <div class='row border'>
+      <div class='col'>
         <h3><%= link_to recipe.name, recipe_path(recipe), :class => 'recipe-title' %></h3>
         <p>By: <%= recipe.user.name %> </p>
       </div>
-      <div class='description'>
+      <div class='col description'>
         <p>Total food items: <%= recipe.recipe_foods.includes(:food).count %></p>
         <p>
           <% total = 0 %>
