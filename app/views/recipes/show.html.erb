@@ -3,47 +3,72 @@
     <h1><%= @recipe.name %></h1>
   </div>
 
-  <div class='recipe-details border'>
-    <p>Prepartion Time: <%= @recipe.preparation_time %></p>
-    <p>Cooking Time: <%= @recipe.cooking_time %></p>
-    <p>Description: <%= @recipe.description %></p>
+  <div class='row border'>
+    <div class='col-md-8'>
+      <p>Prepartion Time: <%= @recipe.preparation_time %></p>
+      <p>Cooking Time: <%= @recipe.cooking_time %></p>
+      <p>Description: <%= @recipe.description %></p>
+    </div>
+
+    <div class="col-md-4">
+      <% if can? :update, @recipe %>
+        <%= form_with model:@recipe, url:recipe_path(@recipe.id), html:{method: :put} do |f| %>
+            <div class="form-check form-switch">
+              <%= f.label :public, class:"form-check-label" %>
+              <%= f.check_box :public, class:"form-check-input", onchange: "this.form.submit()" %>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class='row ingredients'>
-    <div class='col'>
-      <%= button_to 'Generate Shoping List', '#', :class => 'btn btn-primary' %>
-    </div>
-    <div class='col'>
-      <%= link_to 'Add Ingredient', new_recipe_path, :class => 'btn btn-secondary' %>
-    </div>
+    <% if @recipe.user_id != @user.id  && @recipe.public == false %>
+      <div class="col-md-12">
+        <h3 class="text-center">This recipe is private</h3>
+      </div>
+    <% else %>
+      <% if can? :update, @recipe %>
+        <div class="col-md-8">
+          <%= link_to 'General shopping list', "#linkhere", class: 'btn btn-primary' %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to 'Add Ingredient', "#", class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div>
     <h2>Ingredient List</h2>
-    <table class='table'>
-      <thead>
-        <tr>
-          <th scope='col'>Name</th>
-          <th scope='col'>Quantity</th>
-          <th scope='col'>Price</th>
-          <th scope='col'>Total Price</th>
-          <th scope='col'>Action</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @foods.each do |item| %>
+     <table class="table table-hover table-bordered mt-4 table-responsive{-sm|-md|-lg|-xl} ">
+        <thead>
           <tr>
-            <td><%= item.name %></td>
-            <td><%= item.quantity %></td>
-            <td><%= item.price %></td>
-            <td><%= item.price * item.quantity %></td>
-            <td>
-              <%= button_to 'Remove', food_path(item.id), data: {turbo: false}, method: :delete, class: 'btn btn-danger' %>
-            </td>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Value</th>
+            <th scope="col">Action</th>
           </tr>
-        <% end %>
-      </tbody>
+        </thead>
+        <tbody>
+          <% @recipe_foods.each do |food| %>
+            <tr>
+              <td><%= food.food.name%></td>
+              <td><%= food.quantity%><%= food.food.measurement_unit %></td>
+              <td>
+                <% sum = 0 %>
+                <% sum += food.quantity * food.food.price %>
+                <%= "Total price: $#{sum}" %>
+              </td>
+              <td>
+                <% if can? :update, @recipe %>
+                  <%= button_to "Delete", recipe_recipe_food_path(recipe_id:@recipe.id,id:food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+                <% end %>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
     
   </div>
 </div>

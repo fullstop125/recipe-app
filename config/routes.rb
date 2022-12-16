@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'public_lists/index'
   get 'recipes/index'
   devise_for :users
   root 'foods#index'
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
 
   # Defines routes for recipes
   resources :recipes, except: [:update]
-  get 'public_recipes', to: 'recipes#public', as: 'public_recipes'
+  resources :public_lists, only: [:index]
   resources :foods, except: [:update]
 end
 
