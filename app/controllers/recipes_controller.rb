@@ -19,9 +19,14 @@ class RecipesController < ApplicationController
 
   # Post /recipes or /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
-    @user = current_user
-    @recipe.user = @user
+    @recipe = Recipe.new(
+      name: recipe_params[:name],
+      preparation_time: recipe_params[:preparation_time],
+      cooking_time: recipe_params[:cooking_time],
+      description: recipe_params[:description],
+      public: recipe_params[:public],
+      user_id: current_user.id
+    )
 
     if @recipe.save
       redirect_to @recipe
@@ -43,7 +48,9 @@ class RecipesController < ApplicationController
   # GET /public_recipes
   def public
     @recipes = Recipe.where(public: true).order('created_at DESC')
-    @user = User.find_by(id: params[:user_id])
+    @username = user_signed_in? ? current_user.name : 'Guest'
+    @total_foods = Food.count
+    @total_prices = Food.sum(:price)
   end
 
   private
@@ -51,7 +58,7 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(
       :name, :preparation_time, :cooking_time,
-      :description, :public, :user_id
+      :description, :public
     )
   end
 end
