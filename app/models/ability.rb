@@ -1,14 +1,12 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(user)
-  
-    if user
-      can :manage, Recipe, user_id: user.id
-      can :destroy, Recipe, user_id: user.id
-    end
+    return unless user
+
+    can :manage, Recipe, user_id: user.id
+    can :destroy, Recipe, user_id: user.id
+
     # can :manage, Recipe, user_id: user.id
 
     # Define abilities for the user here. For example:
