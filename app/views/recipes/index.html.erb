@@ -8,9 +8,9 @@
 
       <div class='col name'>
         <h3><%= link_to recipe.name, recipe_path(recipe), :class => 'recipe-title' %></h3>
-        
-        <%= button_to "Remove", recipe_path(recipe), data: {turbo: false}, method: :delete, class: "btn btn-danger" %>
-       
+        <% if can? :destroy, recipe %>
+          <%= button_to "Remove", recipe_path(recipe), data: {turbo: false}, method: :delete, class: "btn btn-danger" %>
+        <% end %>
       </div>
 
       <div class='col description'>

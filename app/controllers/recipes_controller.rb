@@ -10,7 +10,9 @@ class RecipesController < ApplicationController
   # GET /recipes/1 or /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
-    @foods = Food.all
+    @user = current_user
+    @recipe_foods = RecipeFood.includes(:food).where(recipe_id: @recipe.id)
+    
   end
 
   # GET /recipes/new or /recipes/new.json
@@ -51,7 +53,6 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(
       :name, :preparation_time, :cooking_time,
-      :description, :public
-    )
+      :description, :public)
   end
 end
