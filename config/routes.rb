@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   # Defines routes for recipes
-  resources :recipes, except: [:update]
+  resources :recipes, except: [:update] do 
+    resources :recipe_foods, only: [:create, :new, :destroy, :index]
+  end
   resources :public_lists, only: [:index]
   resources :foods, except: [:update]
 end
