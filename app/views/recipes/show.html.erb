@@ -3,19 +3,40 @@
     <h1><%= @recipe.name %></h1>
   </div>
 
-  <div class='recipe-details border'>
-    <p>Prepartion Time: <%= @recipe.preparation_time %></p>
-    <p>Cooking Time: <%= @recipe.cooking_time %></p>
-    <p>Description: <%= @recipe.description %></p>
+  <div class='row border'>
+    <div class='col-md-8'>
+      <p>Prepartion Time: <%= @recipe.preparation_time %></p>
+      <p>Cooking Time: <%= @recipe.cooking_time %></p>
+      <p>Description: <%= @recipe.description %></p>
+    </div>
+
+    <div class="col-md-4">
+      <% if can? :update, @recipe %>
+        <%= form_with model:@recipe, url:recipe_path(@recipe.id), html:{method: :put} do |f| %>
+            <div class="form-check form-switch">
+              <%= f.label :public, class:"form-check-label" %>
+              <%= f.check_box :public, class:"form-check-input", onchange: "this.form.submit()" %>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class='row ingredients'>
-    <div class='col'>
-      <%= button_to 'Generate Shoping List', '#', :class => 'btn btn-primary' %>
-    </div>
-    <div class='col'>
-      <%= link_to 'Add Ingredient', new_recipe_path, :class => 'btn btn-secondary' %>
-    </div>
+    <% if @recipe.user_id != @user.id  && @recipe.public == false %>
+      <div class="col-md-12">
+        <h3 class="text-center">This recipe is private</h3>
+      </div>
+    <% else %>
+      <% if can? :update, @recipe %>
+        <div class="col-md-8">
+          <%= link_to 'General shopping list', "#linkhere", class: 'btn btn-primary' %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to 'Add Ingredient', "#", class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div>

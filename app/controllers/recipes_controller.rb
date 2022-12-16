@@ -22,14 +22,8 @@ class RecipesController < ApplicationController
 
   # Post /recipes or /recipes.json
   def create
-    @recipe = Recipe.new(
-      name: recipe_params[:name],
-      preparation_time: recipe_params[:preparation_time],
-      cooking_time: recipe_params[:cooking_time],
-      description: recipe_params[:description],
-      public: recipe_params[:public],
-      user_id: current_user.id
-    )
+    @user = current_user
+    @recipe = @user.recipes.new(recipe_params)
 
     if @recipe.save
       redirect_to @recipe
@@ -38,6 +32,18 @@ class RecipesController < ApplicationController
       render 'new'
       flash[:alert] = 'Recipe was not created.'
     end
+  end
+
+  # PATCH/PUT /recipes/1 or /recipes/1.json
+  def update
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.public == true
+      @recipe.update(public: false)
+    else
+      Recipe.find(@recipe.id).update(public: true)
+    end
+    redirect_to recipe_path(@recipe.id), notice: 'Public Updated'
   end
 
   # Delete /recipes/1 or /recipes/1.json
@@ -53,6 +59,6 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(
       :name, :preparation_time, :cooking_time,
-      :description, :public)
+      :description, :public, current_user.id)
   end
 end
