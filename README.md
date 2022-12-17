@@ -1,6 +1,29 @@
 <a name="readme-top"></a>
 
+<!--
+HOW TO USE:
+This is an example of how you may give instructions on setting up your project locally.
+
+Modify this file to match your project and remove sections that don't apply.
+
+REQUIRED SECTIONS:
+- Table of Contents
+- About the Project
+  - Built With
+  - Live Demo
+- Getting Started
+- Authors
+- Future Features
+- Contributing
+- Show your support
+- Acknowledgements
+- License
+
+After you're finished please remove all the comments and instructions!
+-->
+
 <div align="center">
+  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
   <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
@@ -29,35 +52,34 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Rails Recipe App] <a name="about-project"></a>
+# 📖 [your_project_name] <a name="about-project"></a>
 
-**[The Recipe app]** is a ruby on rails application that keeps track of all your recipes, ingredients, and inventory. It allow user to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, recipes can be shared with the public.
+> Describe your project in 1 or 2 sentences.
+
+**[your_project__name]** is a...
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
+> Describe the tech stack and include only the relevant sections that apply to your project.
+
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS3</a></li>
-    <li><a href="#">Ruby ERB</a></li>
-    <li><a href="#">Bootstrap</a></li>
+    <li><a href="https://reactjs.org/">React.js</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="#">Ruby</a></li>
-    <li><a href="#">Ruby on Rails</a></li>
-    <li><a href="#">Devise</a></li>
-    <li><a href="#">CanCanCan</a></li>
+    <li><a href="https://expressjs.com/">Express.js</a></li>
   </ul>
 </details>
 
@@ -72,17 +94,19 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Registration (Login/signup)]**
-- **[Display Food list]**
-- **[Display Recipes List]**
-- **[General shopping and public recipes list]**
-- **[Add and remove food, recipes and ingredients]**
+> Describe between 1-3 key features of the application.
+
+- **[key_feature_1]**
+- **[key_feature_2]**
+- **[key_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
+
+> Add a link to your deployed project.
 
 - [Live Demo Link](https://yourdeployedapplicationlink.com)
 
@@ -92,51 +116,103 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
+> Describe how a new developer could make use of your project.
+
+To get a local copy up and running, follow these steps.
+
 ### Prerequisites
 
 In order to run this project you need:
 
-- Install Ruby, PostgreSQL and Rails
+<!--
+Example command:
+
+```sh
+ gem install rails
+```
+ -->
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-- git clone https://github.com/fullstop125/recipe-app.git
+<!--
+Example commands:
+
+```sh
+  cd my-folder
+  git clone git@github.com:myaccount/my-project.git
+```
+--->
 
 ### Install
 
-- cd my-project
-- gem install
+Install this project with:
+
+<!--
+Example command:
+
+```sh
+  cd my-project
+  gem install
+```
+--->
 
 ### Usage
 
 To run the project, execute the following command:
 
-- rails server
+<!--
+Example command:
 
+```sh
+  rails server
+```
+--->
 
 ### Run tests
 
 To run tests, run the following command:
 
-- rspec spec
+<!--
+Example command:
+
+```sh
+  bin/rails test test/models/article_test.rb
+```
+--->
+
+### Deployment
+
+You can deploy this project using:
+
+<!--
+Example:
+
+```sh
+
+```
+ -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Hassan Mumanyi**
+> Mention all of the collaborators of this project.
 
-- GitHub: [@githubhandle](https://github.com/MosesHassany)
-- Twitter: [@twitterhandle](https://twitter.com/MosesHassany)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/MosesHassany)
+👤 **Author1**
 
-👤 **Husseini Mudi**
+- GitHub: [@githubhandle](https://github.com/githubhandle)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-- GitHub: [@githubhandle](https://github.com/profsain)
-- Twitter: [@twitterhandle](https://twitter.com/profsain)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/Profsain)
+👤 **Author2**
+
+- GitHub: [@githubhandle](https://github.com/githubhandle)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -146,8 +222,9 @@ To run tests, run the following command:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[Social media sharing]**
-- [ ] **[Comment on Recipes]**
+- [ ] **[new_feature_1]**
+- [ ] **[new_feature_2]**
+- [ ] **[new_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,7 +234,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page]https://github.com/fullstop125/recipe-app/issues).
+Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,7 +242,9 @@ Feel free to check the [issues page]https://github.com/fullstop125/recipe-app/is
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project give us some ⭐️
+> Write a message to encourage readers to support your project
+
+If you like this project...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -175,7 +254,23 @@ If you like this project give us some ⭐️
 
 > Give credit to everyone who inspired your codebase.
 
-I would like to thank Microverse team and all Micronaut that supported us during this project
+I would like to thank...
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FAQ (optional) -->
+
+## ❓ FAQ <a name="faq"></a>
+
+> Add at least 2 questions new developers would ask when they decide to use your project.
+
+- **[Question_1]**
+
+  - [Answer_1]
+
+- **[Question_2]**
+
+  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,5 +279,7 @@ I would like to thank Microverse team and all Micronaut that supported us during
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
+
+_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
