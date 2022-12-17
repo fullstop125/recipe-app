@@ -1,0 +1,71 @@
+<div class='container'>
+  <div class='headline'>
+    <h1><%= @recipe.name %></h1>
+  </div>
+
+  <div class='recipe-details border row'>
+    <div class="col-md-7">
+    <p>Prepartion Time: <%= @recipe.preparation_time %></p>
+    <p>Cooking Time: <%= @recipe.cooking_time %></p>
+    <p>Description: <%= @recipe.description %></p>
+    </div>
+    <div class="col-md-5">
+      <% if can? :update, @recipe %>
+        <%= form_with model:@recipe, url:recipe_path(@recipe.id), html:{method: :put} do |f| %>
+            <div class="form-check form-switch">
+              <%= f.label :public, class:"form-check-label" %>
+              <%= f.check_box :public, class:"form-check-input", onchange: "this.form.submit()" %>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='row ingredients'>
+    <% if @recipe.user_id != @user.id  && @recipe.public == false %>
+      <div class="col-md-12">
+        <h3 class="text-center">This recipe is private</h3>
+      </div>
+    <% else %>
+      <% if can? :update, @recipe %>
+        <div class="col-md-8">
+          <%= link_to 'Generate shopping list', shopping_list_index_path, class: 'btn btn-primary' %>
+        </div>
+        <div class="col-md-4">
+          <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id), class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <h2>Ingredient List</h2>
+    <table class="table table-hover table-bordered mt-4 table-responsive{-sm|-md|-lg|-xl} ">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Value</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe_foods.each do |food| %>
+          <tr>
+            <td><%= food.food.name%></td>
+            <td><%= food.quantity%><%= food.food.measurement_unit %></td>
+            <td>
+              <% sum = 0 %>
+              <% sum += food.quantity * food.food.price %>
+              <%= "Total price: $#{sum}" %>
+            </td>
+            <td>  
+                <%= button_to "Delete", recipe_recipe_food_path(recipe_id:@recipe.id,id:food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+    
+  </div>
+</div>

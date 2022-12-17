@@ -1,0 +1,41 @@
+<div class='container'>
+  <div class='headline'>
+    <h1>Create New Recipes</h1>
+  </div>
+
+  <div class='container'>
+    <%= form_for @recipe do |f| %>
+      <div class='mb-3'>
+        <%= f.label :name %><br>
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+
+      <div class='mb-3'>
+        <%= f.label :preparation_time, :class => 'form-label' %><br>
+        <%= f.text_field :preparation_time, :class => 'form-control' %>
+      </div>
+
+      <div class='mb-3'>
+        <%= f.label :cooking_time, :class => 'form-label' %><br>
+        <%= f.text_field :cooking_time, :class => 'form-control' %>
+      </div>
+
+      <div class='mb-3'>
+        <%= f.label :description, :class => 'form-label' %><br>
+        <%= f.text_area :description, :class => 'form-control' %>
+      </div>
+
+      <div class='mb-3'>
+        <%= f.label 'Make Public' %>
+        <%= f.radio_button :public, 'true', :checked => true %>
+        <%= f.label 'True' %>
+        <%= f.radio_button :public, 'false' %>
+        <%= f.label 'False' %>
+      </div> 
+      
+      <div class='actions'>
+        <%= f.submit :class => 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

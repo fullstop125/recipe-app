@@ -1,0 +1,2 @@
+module RecipeeFoodsHelper
+end

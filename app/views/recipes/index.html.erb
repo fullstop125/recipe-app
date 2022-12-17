@@ -1,0 +1,23 @@
+<div class='container'>
+  <div class='headline'>
+    <h1>Recipes List</h1>
+    <%= link_to 'New Recipe', new_recipe_path, :class => 'btn btn-primary' %>
+  </div>
+  <% @recipes.each do |recipe| %>
+    <div class='row border'>
+
+      <div class='col name'>
+        <h3><%= link_to recipe.name, recipe_path(recipe), :class => 'recipe-title' %></h3>
+        <% if can? :destroy, recipe %>
+          <%= button_to "Remove", recipe_path(recipe), data: {turbo: false}, method: :delete, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+
+      <div class='col description'>
+        <p><%= recipe.description %></p>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
