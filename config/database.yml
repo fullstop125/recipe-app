@@ -11,8 +11,8 @@ development:
   <<: *default
   database: recipe_app_development
   host: localhost
-  username: postgres
-  password: '24434'
+  username: samaritan
+  password: 'blackheart125'
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -39,8 +39,8 @@ test:
   <<: *default
   database: recipe_app_test
   host: localhost
-  username: postgres
-  password: '24434'
+  username: samaritan
+  password: 'blackheart125'
 
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -65,6 +65,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: recipe_app_production
   username: recipe_app
   password: <%= ENV["RECIPE_APP_DATABASE_PASSWORD"] %>
